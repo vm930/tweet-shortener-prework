@@ -1,4 +1,5 @@
 # Write your code here.
+
 def dictionary
 dictionary = {
   "too" => "2",
@@ -13,34 +14,43 @@ dictionary = {
 }
 end
 
-def word_substituter(tweet)
-  tweet.split.collect do |word|
-    if dictionary.keys.include?(word.downcase)
-      word = dictionary[word.downcase]
-    else
-      word
-    end
-  end.join(" ")
-end
+#.collect 
+#.join 
 
-def bulk_tweet_shortener(tweets)
+def word_substituter(tweet)
+  tweet.split.collect do
+  |word| if dictionary.keys.include?(word.downcase)
+    word = dictionary[word.downcase]
+  else 
+    word
+  end 
+  end.join(" ")
+end 
+
+#.each
+
+def  bulk_tweet_shortener(tweets)
   tweets.each do |tweet|
     puts word_substituter(tweet)
-  end
-end
+  end 
+end 
 
+#
 def selective_tweet_shortener(tweet)
   if tweet.length > 140
     word_substituter(tweet)
-  else
+  else 
     tweet
   end
-end
+end 
 
+#
 def shortened_tweet_truncator(tweet)
   if word_substituter(tweet).length > 140
-    word_substituter(tweet)[0..136] + '...'
-  else
+    word_substituter(tweet)[0..136] + "..."
+  else 
     tweet
   end
-end
+end 
+
+
